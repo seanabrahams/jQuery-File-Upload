@@ -103,6 +103,9 @@
                                     (options.autoUpload || data.autoUpload) &&
                                     data.autoUpload !== false && data.isValidated) {
                                 data.submit();
+                            } else if ((options.autoUpload || data.autoUpload) &&
+                                    data.autoUpload !== false && !data.isValidated) {
+                              that._trigger('fail', e, data);
                             }
                         }
                     );
